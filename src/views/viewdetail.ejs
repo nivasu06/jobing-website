@@ -1,0 +1,74 @@
+<!-- IT IS THE VIEW FORM WHEN THE CARD VIEW DETAILS IS PRESSED -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .details-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #602323;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: yellow;
+        }
+        .details {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background-color: yellowgreen;
+        }
+        .details h3 {
+            margin-top: 0;
+        }
+        .btn-container {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <%- include('navigationbar') %>
+   
+    <div class="container mt-5">
+        <h2 style="text-align: center;">Job Details</h2>
+        <div class="details">
+            
+            <h3><%= product.title %></h3>
+            <p><strong>Company:</strong> <%= product.companyname %></p>
+            <p><strong>Location:</strong> <%= product.location %></p>
+            <p><strong>Requirements:</strong> <%= product.requirements %></p>
+            <p><strong>Details:</strong> <%= product.desc %></p>
+            <p><strong>Salary:</strong> <%= product.salary %></p>
+            <p><strong>Contact Email:</strong> <%= product.email %></p>
+            <p><strong>Phone No:</strong> <%= product.phone %></p>
+            <% if(locals.lastVisit){ %>
+                <div class="alert alert-success" role="alert">
+                    Last Posted was on : <%= locals.lastVisit %>
+                </div>
+            <% } %>
+            <% if(locals.userEmail) {%>
+                <div class="btn-container">
+                    <a href="/update/<%= product.id %>" class="btn btn-secondary">Update</a>
+                    <form action="/delete/<%= product.id %>" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            <%}else{%>
+                <div class="btn-container">
+                    <a href="/apply" class="btn btn-secondary">APPLY</a>
+                </div>
+            <% } %>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicants Table</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            text-align: center;
+            color: #fff;
+        }
+        .table-dark {
+            background-color: #343a40;
+        }
+        .btn-success {
+            width: 100%;
+        }
+        /* Additional styling for full-page coverage */
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+            padding-top: 56px; /* Adjust based on your navigation height */
+        }
+        .container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* Custom navbar styles */
+        .custom-navbar {
+            background-color: #007bff; /* Navbar background color */
+        }
+        .custom-navbar .navbar-brand,
+        .custom-navbar .nav-link {
+            color: #ffffff; /* Navbar text color */
+        }
+        .custom-navbar .navbar-toggler {
+            border-color: #ffffff; /* Navbar toggler button color */
+        }
+        .custom-navbar .nav-link:hover,
+        .custom-navbar .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Navbar link hover background color */
+        }
+        .custom-navbar .dropdown-menu {
+            background-color: #007bff; /* Dropdown menu background color */
+        }
+        .custom-navbar .dropdown-item {
+            color: #ffffff; /* Dropdown menu item text color */
+        }
+        .custom-navbar .dropdown-divider {
+            border-top-color: rgba(255, 255, 255, 0.1); /* Dropdown menu divider color */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Your Brand</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/jobcard">Jobs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Recruiter
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                            <a class="dropdown-item" href="/jobpost">Post Job</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5"> <!-- Increased margin-top to 5 -->
+        <h1 class="mb-4 header">APPLICANTS</h1>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Resume</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% applies.forEach(product => { %>
+                <tr>
+                    <th scope="row"><%= product.id %></th>
+                    <td><%= product.name %></td>
+                    <td><%= product.email %></td>
+                    <td><%= product.phone %></td>
+                    <td>
+                        <a href="/resume/<%= product.id %>" class="btn btn-success" target="_blank">View Resume</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

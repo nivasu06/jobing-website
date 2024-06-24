@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/css/headers.css">
+    <script src="main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <style>
+        /* Custom CSS to style the navbar and buttons */
+       
+        /* Custom CSS for buttons and container */
+        .container-body {
+            background-color: #f0f0f0; /* Background color for container body */
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center; /* Center align contents inside the container */
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            margin: 10px;
+        }
+    </style>
+    <title>Products</title>
+</head>
+
+<body>
+
+    <%- include('navigationbar')%>
+    <div class="container mt-5">
+        <div class="btn-container">
+            <a href="/jobcard" class="btn btn-primary btn-lg">IAM JOB SEEKER</a>
+            <a href="/details-card" class="btn btn-secondary btn-lg">IAM JOB RECRUITER</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!-- views/add-product.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Job</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            padding: 20px; /* Add some padding for better spacing */
+        }
+        .header {
+            text-align: center; /* Center align the header */
+            color: #343a40; /* Dark text color */
+        }
+        form {
+            max-width: 500px; /* Limit form width for better readability */
+            margin: auto; /* Center align the form */
+            background-color: #fff; /* White background for form */
+            padding: 20px; /* Add padding inside the form */
+            border: 1px solid #ced4da; /* Light gray border */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Space between form groups */
+        }
+    </style>
+</head>
+<body>
+    
+    <h1 class="mt-5 mb-4 header">Apply for Job</h1>
+
+    <form action="/resume" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name" class="form-label">Name of Applicant</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Email of Applicant</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10 digit phone number" required>
+        </div>
+        <div class="form-group">
+            <label for="resume" class="form-label">Resume</label>
+            <input type="file" class="form-control-file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
