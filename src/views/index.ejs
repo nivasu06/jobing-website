@@ -14,24 +14,120 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <style>
-        /* Custom CSS to style the navbar and buttons */
-       
-        /* Custom CSS for buttons and container */
+        /* Main styling for container */
         .container-body {
-            background-color: #f0f0f0; /* Background color for container body */
-            padding: 20px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            padding: 40px;
             margin-top: 20px;
-            text-align: center; /* Center align contents inside the container */
+            text-align: center;
+            border-radius: 15px;
+            animation: fadeIn 1.5s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .btn-container {
+        /* Recruiter and Seeker section styling */
+        .extra-styling {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            align-items: center;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            animation: fadeIn 1.5s ease;
         }
 
-        .btn-primary,
-        .btn-secondary {
-            margin: 10px;
+        /* Styling for profile images */
+        .recruiter,
+        .seeker {
+            width: 350px;
+            height: 350px;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recruiter {
+            background-image: url('https://akm-img-a-in.tosshub.com/indiatoday/images/story/202009/recruitment-3942378_1280.jpeg');
+        }
+
+        .seeker {
+            background-image: url('https://cdn1.vectorstock.com/i/1000x1000/36/90/jobseeker-flat-character-vacancy-candidate-job-vector-29123690.jpg');
+        }
+
+        /* Button styling for overlay */
+        .btn-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: rgba(0, 123, 255, 0.9);
+            border: none;
+            border-radius: 30px;
+            text-transform: uppercase;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+            text-align: center;
+            width: 80%;
+        }
+
+        .btn-overlay:hover {
+            background-color: #0056b3;
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        /* Paper airplane animation */
+        .paper-airplane {
+            width: 50px;
+            position: absolute;
+            top: 40%;
+            left: 20%;
+            animation: fly 3s ease-in-out infinite;
+            transform: rotate(45deg);
+            border-radius :30px;
+        }
+
+        @keyframes fly {
+            0% {
+                left: 20%;
+                transform: rotate(45deg);
+            }
+            50% {
+                left: 70%;
+                transform: rotate(0deg);
+            }
+            100% {
+                left: 20%;
+                transform: rotate(-45deg);
+            }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styling for description text */
+        .description-text {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.5;
         }
     </style>
     <title>Products</title>
@@ -39,14 +135,30 @@
 
 <body>
 
-    <%- include('navigationbar')%>
+    <%- include('navigationbar') %>
+    
     <div class="container mt-5">
-        <div class="btn-container">
-            <a href="/jobcard" class="btn btn-primary btn-lg">IAM JOB SEEKER</a>
-            <a href="/details-card" class="btn btn-secondary btn-lg">IAM JOB RECRUITER</a>
+        <div class="extra-styling">
+            <!-- Recruiter profile with button overlay -->
+            <div class="recruiter">
+                <a href="/details-card" class="btn-overlay">I AM JOB RECRUITER</a>
+            </div>
+            
+            <!-- Paper airplane image -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPS7NsjoSYpe4ri4F0xn4bXkKNxr1wFvbL5mm2UI2GmTxh-HlMnV-ab48ZUA9oz7E-AEk&usqp=CAU" 
+                 alt="Paper Airplane" class="paper-airplane">
+                 
+            <!-- Job Seeker profile with button overlay -->
+            <div class="seeker">
+                <a href="/jobcard" class="btn-overlay">I AM JOB SEEKER</a>
+            </div>
         </div>
     </div>
 
+    <!-- Description text section -->
+    <div class="description-text">
+        <p>Connecting job seekers and recruiters for a better future. The recruiter on the left sends opportunities, and the job seeker on the right receives them.</p>
+    </div>
 </body>
 
 </html>
